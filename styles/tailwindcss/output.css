@@ -182,12 +182,8 @@
   .contents {
     display: contents;
   }
-  .table {
-    display: table;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
+  .grid {
+    display: grid;
   }
 }
 @layer base {
@@ -272,6 +268,17 @@
     cursor: pointer;
     gap: calc(var(--spacing) * 3);
     border-radius: var(--radius-lg);
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-green-700);
+      }
+    }
+    &:hover {
+      @media (hover: hover) {
+        --tw-duration: 500ms;
+        transition-duration: 500ms;
+      }
+    }
     background-color: var(--color-green-500);
     padding: calc(var(--spacing) * 4);
     font-size: var(--text-base);
@@ -279,6 +286,12 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
     color: var(--color-white);
+    outline-offset: 2px;
+    outline-color: var(--color-green-500);
+    &:focus-within {
+      outline-style: var(--tw-outline-style);
+      outline-width: 3px;
+    }
     @media (width >= 48rem) {
       padding: calc(var(--spacing) * 3);
     }
@@ -310,11 +323,6 @@
     opacity: 1;
   }
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-leading {
   syntax: "*";
   inherits: false;
@@ -327,13 +335,23 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-outline-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
       --tw-tracking: initial;
+      --tw-duration: initial;
+      --tw-outline-style: solid;
     }
   }
 }

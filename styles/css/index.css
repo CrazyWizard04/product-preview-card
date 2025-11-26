@@ -118,7 +118,7 @@ img {
   transition: 0.5s;
 }
 
-.cart-btn:focus {
+.cart-btn:focus-within {
   outline: 3px solid var(--color-green-500);
   outline-offset: 2px;
 }
@@ -150,8 +150,7 @@ img {
 }
 
 @keyframes fade-in {
-  0%,
-  50% {
+  0%, 50% {
     opacity: 0;
   }
   100% {
