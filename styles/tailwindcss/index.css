@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green-500: hsl(158, 36%, 37%);
+  --color-green-700: hsl(158, 42%, 18%);
+
+  --color-black: hsl(212, 21%, 14%);
+  --color-grey: hsl(228, 12%, 48%);
+  --color-cream: hsl(30, 38%, 92%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --text-base: clamp(0.875rem, 2.5vw, 1rem);
+  --text-heading: clamp(2rem, 4vw, 2.25rem);
+
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-fraunces: "Fraunces", sans-serif;
+
+  --animate-slide-in: slide-in 0.6s ease;
+  --animate-fade-in: fade-in 1s ease;
+
+  --card-container: 40rem;
+}
+
+@utility inline-flex-center {
+  @apply inline-flex items-center justify-center;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 scroll-smooth box-border font-montserrat;
+  }
+
+  body {
+    @apply min-h-screen grid place-content-center px-4 py-12 md:p-0 text-base font-normal text-grey leading-[1.5] bg-cream;
+  }
+
+  main {
+    @apply grid grid-cols-1 md:grid-cols-2 md:max-w-[var(--card-container)] bg-white rounded-xl overflow-hidden animate-slide-in;
+  }
+
+  img {
+    @apply block w-full pointer-events-none;
+  }
+}
+
+@layer components {
+  .product-details {
+    @apply p-8 grid gap-5 animate-fade-in;
+  }
+
+  .category {
+    @apply tracking-[6px] uppercase;
+  }
+
+  .name {
+    @apply text-black font-fraunces text-heading leading-[1];
+  }
+
+  .pricing {
+    @apply flex items-center gap-4;
+  }
+
+  .current-price {
+    @apply text-green-500 font-fraunces text-heading;
+  }
+
+  .cart-btn {
+    @apply inline-flex-center gap-3 cursor-pointer rounded-lg p-4 md:p-3 bg-green-500 text-white text-base font-bold;
+  }
+}
+
+.cart-btn::before {
+  content: "";
+  background-image: url("../../images/icon-cart.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0%,
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

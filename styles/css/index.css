@@ -47,10 +47,10 @@ main {
 
   border-radius: 0.75rem;
   overflow: hidden;
-  animation: slide-in 0.5s ease;
+  animation: slide-in 0.6s ease;
 }
 
-.product-picture img {
+img {
   display: block;
   width: 100%;
   pointer-events: none;
@@ -88,11 +88,11 @@ main {
 }
 
 .cart-btn {
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  cursor: pointer;
 
   border: none;
   border-radius: 0.5rem;
